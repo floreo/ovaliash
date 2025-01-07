@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  ovaliash:
+    container_name: ovaliash
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src/:/var/www/html/:rw
+    ports:
+      - 127.0.0.1:8080:80
+    restart: unless-stopped
+    environment:
+      - APPLICATION_KEY
+      - APPLICATION_SECRET
+      - CONSUMER_KEY
+      - DOMAIN
+      - TO
+      - TOKEN
